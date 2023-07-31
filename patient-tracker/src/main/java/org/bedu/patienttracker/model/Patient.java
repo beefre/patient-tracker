@@ -1,13 +1,11 @@
 package org.bedu.patienttracker.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
 @Builder
+@Generated
 public class Patient {
 
     private int id;
