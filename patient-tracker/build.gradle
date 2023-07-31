@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.1'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id 'jacoco'
 }
 
 group = 'org.bedu.patienttracker'
@@ -21,6 +22,39 @@ repositories {
 	mavenCentral()
 }
 
+test{
+	useJUnitPlatform()
+}
+
+task coverage{
+	dependsOn test
+	dependsOn jacocoTestCoverageVerification
+	finalizedBy jacocoTestReport
+}
+
+jacocoTestCoverageVerification{
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					"org/bedu/patienttracker/entity*",
+					"org/bedu/patienttracker/model*",
+					"org/bedu/patienttracker/mapper*",
+					"org/bedu/patienttracker/repository*",
+					"org/bedu/patienttracker/controller*",
+					"org/bedu/patienttracker/PatientTrackerApplication.class",
+			])
+		}))
+	}
+
+	violationRules{
+		rule{
+			limit{
+				minimum = 0.95
+			}
+		}
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -32,6 +66,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.3'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 }
 
 tasks.named('test') {
