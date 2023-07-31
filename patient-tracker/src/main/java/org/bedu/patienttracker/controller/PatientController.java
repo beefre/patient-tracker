@@ -1,7 +1,6 @@
 package org.bedu.patienttracker.controller;
 
 import lombok.AllArgsConstructor;
-import org.bedu.patienttracker.mapper.PatientMapper;
 import org.bedu.patienttracker.model.Patient;
 import org.bedu.patienttracker.service.PatientService;
 import org.springframework.http.HttpStatus;
