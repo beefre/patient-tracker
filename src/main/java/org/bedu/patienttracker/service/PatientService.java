@@ -6,6 +6,8 @@ import org.bedu.patienttracker.model.Patient;
 import org.bedu.patienttracker.repository.PatientRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class PatientService {
@@ -18,7 +20,7 @@ public class PatientService {
     }
 
     public Patient getPatient(Integer id){
-        return patientMapper.patientEntityToPatientModel(patientRepository.findById(id).get());
+        return patientMapper.patientEntityToPatientModel(Optional.ofNullable(patientRepository.findById(id)).get().orElse(null));
     }
 
     public void deletePatient(Integer id) {
