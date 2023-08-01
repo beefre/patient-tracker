@@ -3,19 +3,14 @@ package org.bedu.patienttracker.service;
 import org.bedu.patienttracker.mapper.PatientMapper;
 import org.bedu.patienttracker.model.Patient;
 import org.bedu.patienttracker.repository.PatientRepository;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mapstruct.factory.Mappers;
-import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 
