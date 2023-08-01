@@ -17,7 +17,7 @@ jobs:
           distribution: "zulu"
 
       - name: Ejecutar las pruebas
-        run: ../patient-tracker/gradlew test --no-daemon
+        run: ./gradlew test --no-daemon
 
 # Ejecutar el pipeline en cada push sobre la rama "main"
 on:
