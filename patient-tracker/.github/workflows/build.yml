@@ -1,7 +1,7 @@
 # El nombre que recibe el pipeline
 name: Integracion Continua Patient Tracker
 
-# Los pasos para ejecutar el pipeline
+# Los pasos para ejecutar
 jobs:
   build-test:
     runs-on: ubuntu-latest
