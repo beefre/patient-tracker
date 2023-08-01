@@ -1,5 +1,5 @@
 # El nombre que recibe el pipeline
-name: Integracion Continua
+name: Integracion Continua Patient Tracker
 
 # Los pasos para ejecutar el pipeline
 jobs:
